@@ -1,16 +1,17 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Login from "./components/Login";
-// import Logout from './components/Logout';
+import Logout from "./components/Logout";
 import FriendList from "./components/FriendList";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="hero is-primary">
         <div className="hero-content">
-          <h1 className="title is-1">Hello, Comrades</h1>
+          <h1 className="title is-1">Auth with Redux</h1>
           <nav className="nav">
             <Link to="/" className="nav-item">
               Home
@@ -25,9 +26,16 @@ function App() {
         </div>
       </header>
       <Route path="/login" component={Login} />
-      <FriendList />
+      <Route path="/friendslist" component={FriendList} />
+      <Route path="/logout" component={Logout} />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn
+  };
+};
+
+export default connect(mapStateToProps, {})(withRouter(App));

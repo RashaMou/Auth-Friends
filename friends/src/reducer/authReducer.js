@@ -1,42 +1,41 @@
-import * as types from "./../actions";
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from "./../actions";
 
 const initialState = {
   token: localStorage.getItem("token"),
-  isAuthenticated: null,
-  isLoading: false,
-  user: null
+  isLoggedIn: false,
+  isLoading: false
 };
 
-export default function(state = initialState, action) {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.LOGIN_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         ...state,
-        isAuthenticated: true,
+        isLoggedIn: true,
         token: action.payload,
         isLoading: false
       };
 
-    case types.LOGIN_FAIL:
+    case LOGIN_FAIL:
       console.log(action.payload);
       return {
         ...state,
         token: null,
-        user: null,
-        isAuthenticated: false,
+        isLoggedIn: false,
         isLoading: false
       };
 
-    case types.LOGOUT:
+    case LOGOUT:
       return {
         ...state,
         token: null,
-        user: null,
-        isAuthenticated: false,
+        isLoggedIn: false,
         isLoading: false
       };
 
     default:
       return state;
   }
-}
+};
+
+export default authReducer;

@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import { Redirect } from "react-router-dom";
 
-const Logout = () => {
-  return (
-    <h3>Logout</h3>
-  )
+function Logout() {
+  localStorage.removeItem("token");
+
+  return <Redirect to="/login" />;
 }
 
 export default Logout;

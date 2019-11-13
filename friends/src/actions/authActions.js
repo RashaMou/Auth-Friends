@@ -1,5 +1,5 @@
-import axiosWithAuth from "./../utils/AxiosWithAuth";
-import { LOGIN_SUCCESS, LOGIN_FAIL } from "./../actions";
+import axiosWithAuth from "../utils/AxiosWithAuth";
+import { LOGIN_SUCCESS, LOGIN_FAIL } from ".";
 
 export const login = (userData, history) => dispatch => {
   axiosWithAuth()
