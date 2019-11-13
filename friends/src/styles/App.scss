@@ -15,7 +15,7 @@
     font-size: 1.5rem;
     float: right;
     width: 300px;
-  
+
     .nav-item {
       color: white;
       &:hover {
@@ -25,7 +25,6 @@
   }
 }
 
-
 .login {
   width: 30%;
   margin: auto;
@@ -34,4 +33,21 @@
   align-items: center;
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 65%;
+  margin: 0 auto;
+  .card {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
 
+    .friend-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

@@ -10,7 +10,7 @@ const initialState = {
   error: null
 };
 
-export default function(state = initialState, action) {
+const friendReducer = (state = initialState, action) => {
   switch (action.type) {
     case START_FETCHING_FRIENDS:
       return {
@@ -31,4 +31,6 @@ export default function(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default friendReducer;

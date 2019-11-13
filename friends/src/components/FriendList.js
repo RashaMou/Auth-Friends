@@ -9,12 +9,28 @@ const FriendList = props => {
 
   console.log("props.friends", props.friends);
 
-  return <h3>FriendList</h3>;
+  return (
+    <div className="card-container">
+      {props.friends.map(friend => {
+        return (
+          <div className="card">
+            <h3 key={friend.id} className="title is-4">
+              {friend.name}
+            </h3>
+            <ul className="friend-info">
+              <li>{friend.age} years old</li>
+              <li>{friend.email}</li>
+            </ul>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
   return {
-    friends: state.friends
+    friends: state.friend.friends
   };
 };
 
