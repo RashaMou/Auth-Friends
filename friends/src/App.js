@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import FriendList from "./components/FriendList";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App(props) {
   return (
@@ -16,25 +17,34 @@ function App(props) {
             <Link to="/" className="nav-item">
               Home
             </Link>
-            <Link to="/login" className="nav-item">
-              Login
-            </Link>
-            <Link to="/logout" className="nav-item">
-              Logout
-            </Link>
+            {!props.isLoggedIn && (
+              <Link to="/login" className="nav-item">
+                Login
+              </Link>
+            )}
+            {props.isLoggedIn && (
+              <Link to="/friendslist" className="nav-item">
+                Friends
+              </Link>
+            )}
+            {props.isLoggedIn && (
+              <Link to="/logout" className="nav-item">
+                Logout
+              </Link>
+            )}
           </nav>
         </div>
       </header>
       <Route path="/login" component={Login} />
-      <Route path="/friendslist" component={FriendList} />
-      <Route path="/logout" component={Logout} />
+      <PrivateRoute path="/friendslist" component={FriendList} />
+      <PrivateRoute path="/logout" component={Logout} />
     </div>
   );
 }
 
 const mapStateToProps = state => {
   return {
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.auth.isLoggedIn
   };
 };
 

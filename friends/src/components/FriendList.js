@@ -7,8 +7,6 @@ const FriendList = props => {
     props.fetchFriends();
   }, []);
 
-  console.log("props.friends", props.friends);
-
   return (
     <div className="card-container">
       {props.friends.map(friend => {

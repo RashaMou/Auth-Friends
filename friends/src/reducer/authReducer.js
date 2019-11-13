@@ -17,7 +17,6 @@ const authReducer = (state = initialState, action) => {
       };
 
     case LOGIN_FAIL:
-      console.log(action.payload);
       return {
         ...state,
         token: null,

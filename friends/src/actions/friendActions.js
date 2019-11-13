@@ -6,7 +6,6 @@ export const fetchFriends = () => dispatch => {
   axiosWithAuth()
     .get("/api/friends")
     .then(res => {
-      console.log("res.data", res.data);
       dispatch({ type: FETCH_SUCCESS, payload: res.data });
     })
     .catch(err => console.log(err));
