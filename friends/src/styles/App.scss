@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+}
+
+.hero {
+  margin-bottom: 40px;
+
+  .hero-content {
+    padding: 30px;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    float: right;
+    width: 300px;
+  
+    .nav-item {
+      color: white;
+      &:hover {
+        color: $grey;
+      }
+    }
+  }
+}
+
+
+.login {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
