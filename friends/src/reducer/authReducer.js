@@ -18,6 +18,7 @@ export default function(state = initialState, action) {
       };
 
     case types.LOGIN_FAIL:
+      console.log(action.payload);
       return {
         ...state,
         token: null,

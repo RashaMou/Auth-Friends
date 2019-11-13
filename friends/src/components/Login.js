@@ -16,14 +16,14 @@ const Login = props => {
   };
 
   const handleSubmit = event => {
-    console.log(event);
     event.preventDefault();
-    props.login(user);
+    props.login(user, props.history);
   };
 
   return (
     <div>
       <h2 className="title is-3">Login</h2>
+      {props.error ? <p>error</p> : null}
       <form className="login" onSubmit={handleSubmit}>
         <label htmlFor="username">
           <input
