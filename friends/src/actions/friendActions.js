@@ -1,5 +1,10 @@
 import axiosWithAuth from "../utils/AxiosWithAuth";
-import { START_FETCHING_FRIENDS, FETCH_SUCCESS } from "./../actions";
+import {
+  START_FETCHING_FRIENDS,
+  FETCH_SUCCESS,
+  DISPLAY_ADD_FRIEND_FORM,
+  ADD_FRIEND
+} from "./../actions";
 
 export const fetchFriends = () => dispatch => {
   dispatch({ type: START_FETCHING_FRIENDS });
@@ -9,4 +14,15 @@ export const fetchFriends = () => dispatch => {
       dispatch({ type: FETCH_SUCCESS, payload: res.data });
     })
     .catch(err => console.log(err));
+};
+
+export const displayAddFriendForm = () => dispatch => {
+  dispatch({ type: DISPLAY_ADD_FRIEND_FORM });
+};
+
+export const addFriend = newFriend => dispatch => {
+  dispatch({ type: ADD_FRIEND });
+  axiosWithAuth()
+    .post("/api/friends", newFriend)
+    .then(res => console.log(res));
 };
