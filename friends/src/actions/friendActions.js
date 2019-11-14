@@ -21,8 +21,9 @@ export const displayAddFriendForm = () => dispatch => {
 };
 
 export const addFriend = newFriend => dispatch => {
-  dispatch({ type: ADD_FRIEND });
   axiosWithAuth()
     .post("/api/friends", newFriend)
-    .then(res => console.log(res));
+    .then(res => {
+      dispatch({ type: ADD_FRIEND, payload: newFriend });
+    });
 };

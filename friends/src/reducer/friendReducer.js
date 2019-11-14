@@ -10,12 +10,7 @@ const initialState = {
   friends: [],
   isFetching: false,
   error: null,
-  isAdding: false,
-  newFriend: {
-    name: "",
-    age: "",
-    email: ""
-  }
+  isAdding: false
 };
 
 const friendReducer = (state = initialState, action) => {
@@ -43,16 +38,17 @@ const friendReducer = (state = initialState, action) => {
         isAdding: true
       };
 
-    // case ADD_FRIEND:
-    //   return {
-    //     ...state,
-    //     isAdding: false,
-    //     newFriend: {
-    //       name: action.payload.name,
-    //       age: action.payload.age,
-    //       email: action.payload.email
-    //     }
-    //   };
+    case ADD_FRIEND:
+      const newFriend = {
+        name: action.payload.name,
+        age: action.payload.age,
+        email: action.payload.email
+      };
+      return {
+        ...state,
+        isAdding: false,
+        friends: [...state.friends, newFriend]
+      };
 
     default:
       return state;

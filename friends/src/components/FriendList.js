@@ -22,51 +22,51 @@ const FriendList = props => {
 
   return (
     <div>
-      <button
-        className="add-button button"
-        onClick={props.displayAddFriendForm}
-      >
-        Add Friend!
-      </button>
+      {!props.isAdding && (
+        <button
+          className="display-form-button button"
+          onClick={props.displayAddFriendForm}
+        >
+          Add Friend!
+        </button>
+      )}
+
       {props.isAdding && (
         <form
-          className="control"
+          className="control add-friend-form"
           onSubmit={e => {
             e.preventDefault();
             props.addFriend(newFriend);
           }}
         >
-          <label className="label" htmlFor="name">
-            Name
-          </label>
+          <label className="label" htmlFor="name"></label>
           <input
             type="text"
             className="input"
             name="name"
             onChange={handleChange}
             value={newFriend.name}
+            placeholder="Name"
           />
-          <label className="label" htmlFor="age">
-            Age
-          </label>
+          <label className="label" htmlFor="age"></label>
           <input
             type="text"
             className="input"
             name="age"
             onChange={handleChange}
             value={newFriend.age}
+            placeholder="Age"
           />
-          <label className="label" htmlFor="email">
-            Email
-          </label>
+          <label className="label" htmlFor="email"></label>
           <input
             type="text"
             className="input"
             name="email"
             onChange={handleChange}
             value={newFriend.email}
+            placeholder="Email"
           />
-          <button type="submit" className="button">
+          <button type="submit" className="button add-button">
             Add!
           </button>
         </form>

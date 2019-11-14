@@ -25,7 +25,14 @@
   }
 }
 
+.display-form-button {
+  margin-bottom: 20px;
+}
+
 .add-button {
+  margin: 0 auto;
+  display: inherit;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -35,6 +42,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.add-friend-form {
+  width: 300px;
+  margin: 0 auto;
 }
 
 .card-container {
