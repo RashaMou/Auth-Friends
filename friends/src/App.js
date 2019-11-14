@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route, withRouter } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Login from "./components/Login";
@@ -35,9 +35,11 @@ function App(props) {
           </nav>
         </div>
       </header>
-      <Route path="/login" component={Login} />
-      <PrivateRoute path="/friendslist" component={FriendList} />
-      <PrivateRoute path="/logout" component={Logout} />
+      <Switch>
+        <Route path="/login" component={Login} />
+        <PrivateRoute path="/friendslist" component={FriendList} />
+        <PrivateRoute path="/logout" component={Logout} />
+      </Switch>
     </div>
   );
 }
@@ -48,4 +50,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(withRouter(App));
+export default connect(mapStateToProps, {})(App);
